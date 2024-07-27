@@ -31,6 +31,9 @@ const makePath = () => {
           c2y: 611.5,
         },
       },
+      {
+        command: "close-path",
+      },
     ];
 
     path.content = points;
