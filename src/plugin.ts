@@ -19,7 +19,28 @@ const makePath = () => {
   const path = penpot.createPath();
   if (path) {
     const points: PenpotPathCommand[] = [
-      ...path.content,
+      {
+        command: "move-to",
+        params: {
+          y: 0,
+          x: 0,
+          c1y: 0,
+          c1x: 0,
+          c2y: 0,
+          c2x: 0,
+        },
+      },
+      {
+        command: "line-to",
+        params: {
+          y: 100,
+          x: 100,
+          c1y: 100,
+          c1x: 100,
+          c2y: 100,
+          c2x: 100,
+        },
+      },
       {
         command: "line-to",
         params: {
