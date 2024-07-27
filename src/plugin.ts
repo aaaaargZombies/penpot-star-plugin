@@ -1,3 +1,5 @@
+import { PenpotPathCommand } from "@penpot/plugin-types";
+
 type MsgToPlugin =
   | { kind: "Change" }
   | { kind: "Ready" }
@@ -13,6 +15,28 @@ console.log("Hello from the plugin!");
 
 penpot.ui.open("Penpot plugin starter Elm template", "");
 
+const makePath = () => {
+  const path = penpot.createPath();
+  if (path) {
+    const points: PenpotPathCommand[] = [
+      ...path.content,
+      {
+        command: "line-to",
+        params: {
+          y: 611.5,
+          x: 491,
+          c1x: 491,
+          c1y: 611.5,
+          c2x: 491,
+          c2y: 611.5,
+        },
+      },
+    ];
+
+    path.content = points;
+  }
+};
+
 const sendMessage = (msg: MsgFromPlugin) => {
   penpot.ui.sendMessage(msg);
 };
@@ -21,6 +45,7 @@ const update = (msg: MsgToPlugin): void => {
   switch (msg.kind) {
     case "Ready":
       console.log("Interface Ready!");
+      makePath();
       break;
 
     case "Change":

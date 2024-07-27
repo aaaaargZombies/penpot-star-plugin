@@ -1,7 +1,7 @@
 {
-  "name": "Penpot starter Elm plugin ",
+  "name": "Penpot Star Plugin",
   "host": "http://localhost:4400",
   "code": "plugin.js",
-  "description": "This is a starter plugin for Penpot that uses Elm for the interface",
-  "permissions": ["page:read", "file:read", "selection:read"]
+  "description": "A plugin to draw start shapes in Penpot",
+  "permissions": ["page:read", "content:write", "file:read", "selection:read"]
 }
